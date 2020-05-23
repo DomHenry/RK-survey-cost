@@ -106,47 +106,38 @@ cost_plot <- function(x, survey_speed_input) {
 }
 
 
-ui <- fluidPage(
-  theme = shinythemes::shinytheme("united"),
-  titlePanel("Cost analysis of roadkill surveys"),
-
-  fluidRow(
-    column(
-      2,
-      numericInput("survey_speed_input", "Survey speed (km/h)", value = 35, min = 10, max = 80, step = 5),
-      numericInput("labour_rate", "Input the labour rate ($/hour):", value = 25, step = 5),
-      numericInput("mileage_rate", "Input the mileage rate ($/km):", value = 0.89, step = 0.1)
+ui <- dashboardPage(
+  dashboardHeader(title = "Roadkill survey cost comparison"),
+  dashboardSidebar(),
+  dashboardBody(
+    
+    fluidRow(
+      box(title = "Speed and rates input", width = 4,
+          numericInput("survey_speed_input", "Survey speed (km/h)", value = 35, min = 10, max = 80, step = 5),
+          numericInput("labour_rate", "Input the labour rate ($/hour):", value = 25, step = 5),
+          numericInput("mileage_rate", "Input the mileage rate ($/km):", value = 0.89, step = 0.1)),
+      box(title = "Durations and distances",width = 4,
+          numericInput("trans_dist_1", "Transect distance 1 (km):", value = 50, step = 10),
+          numericInput("trans_dist_2", "Transect distance 2 (km):", value = 60, step = 10),
+          numericInput("trans_dist_3", "Transect distance 3 (km):", value = 70, step = 10),
+          numericInput("trans_dist_4", "Transect distance 4 (km):", value = 80, step = 10)),
+      box(title = "Download data", width = 2,
+          downloadButton("downloadData", "Download cost analysis data"))
     ),
-    column(
-      2,
-      numericInput("trans_dist_1", "Transect distance 1 (km):", value = 50, step = 10),
-      numericInput("trans_dist_2", "Transect distance 2 (km):", value = 60, step = 10),
-      numericInput("trans_dist_3", "Transect distance 3 (km):", value = 70, step = 10),
-      numericInput("trans_dist_4", "Transect distance 4 (km):", value = 80, step = 10)
+    
+    fluidRow(
+      box(title = "Comparitve plot", width = 4,
+          plotOutput("panel_plot")),
+      box(title = "Summary table", width = 4,
+          tableOutput("cost_data"))
     ),
-    column(
-      2,
-      downloadButton("downloadData", "Download cost analysis data")
+    
+    fluidRow(
+      box(title = "Data frame", width = 8,
+          dataTableOutput("cost_data_dynamic"))
     )
-  ),
+  )
 
-  fluidRow(
-    column(
-      6,
-      plotOutput("panel_plot")
-    )
-  ),
-
-  fluidRow(
-    column(
-      4,
-      tableOutput("cost_data")
-    ),
-    column(
-      8,
-      dataTableOutput("cost_data_dynamic")
-    )
-  ),
 )
 
 server <- function(input, output, session) {
