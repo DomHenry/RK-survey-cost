@@ -10,8 +10,8 @@ ui <- dashboardPage(
 
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Comparison", tabName = "complot"),
-      menuItem("User data", tabName = "userdata")
+      menuItem("Comparison", tabName = "complot", icon = icon("dashboard")),
+      menuItem("User data", tabName = "userdata", icon = icon("th"))
     )
   ),
 
