@@ -43,7 +43,8 @@ generate_cost_data <- function(mileage_rate, labour_rate,
            total_cost = labour_cost + mileage_cost) %>% 
     mutate_at(vars(persistence, carcass_detection,
                    transect_distance, study_duration_days,
-                   survey_speed), as_factor)
+                   survey_speed), as_factor) %>% 
+    arrange(transect_distance,study_duration_days)
   
   return(cost)
 }
