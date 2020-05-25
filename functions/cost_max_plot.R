@@ -10,7 +10,6 @@ cost_max_plot <- function(x,
   x %>% 
     filter(carcass_detection == 100) %>% 
     distinct(transect_distance,study_duration_days,total_cost) %>% 
-    mutate(transect_distance = as.character(transect_distance)) %>% 
     ggplot(aes(x = study_duration_days, y = total_cost,fill = transect_distance))+
     geom_bar(stat = "identity", width = 0.7, position = position_dodge(width = 0.8))+
     scale_x_discrete(limits = three_study_duration)+
