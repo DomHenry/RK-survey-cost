@@ -33,9 +33,9 @@ cost_plot <- function(x,survey_speed_input,
   
   if(maxcost == "yes"){
     
-    p <- p + 
-      geom_hline(yintercept = maxcost_amount, col = "red", linetype = "dashed", size = 0.8)
-    return(p)
+    p <- p +
+     geom_hline(yintercept = maxcost_amount, col = "red", linetype = "dashed", size = 0.8)
+     return(p)
     
   } else {
     
