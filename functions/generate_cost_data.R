@@ -1,12 +1,9 @@
 generate_cost_data <- function(mileage_rate, labour_rate,
-                               trans_dist_1, trans_dist_2,
-                               trans_dist_3, trans_dist_4, survey_speed_input,
-                               study_day1, study_day2, study_day3) {
+                               four_transect_distance,
+                               survey_speed_input,
+                               three_study_days) {
   
-  four_transect_distance <- c(trans_dist_1, trans_dist_2, trans_dist_3, trans_dist_4)
-  three_study_days <- c(study_day1, study_day2, study_day3)
-
-  survey_lookup <- as_tibble(expand.grid(
+   survey_lookup <- as_tibble(expand.grid(
     survey_interval = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 15),
     study_duration_days = three_study_days
   )) %>%

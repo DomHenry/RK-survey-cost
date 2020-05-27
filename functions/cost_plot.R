@@ -1,5 +1,5 @@
 cost_plot <- function(x, survey_speed_input,
-                      study_day1, study_day2, study_day3, maxcost, maxcost_amount) {
+                      maxcost, maxcost_amount) {
   cbp2 <- c(
     "#000000", "#E69F00", "#56B4E9", "#009E73",
     "#F0E442", "#0072B2", "#D55E00", "#CC79A7"

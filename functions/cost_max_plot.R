@@ -1,10 +1,10 @@
 cost_max_plot <- function(x,
-                          study_day1, study_day2, study_day3,
-                          trans_dist_1, trans_dist_2, trans_dist_3, trans_dist_4) {
-  
-  three_study_duration <- as.character(sort(c(study_day1, study_day2, study_day3)))
-  four_transect_distance <- sort(c(trans_dist_1, trans_dist_2, trans_dist_3, trans_dist_4))
+                          three_study_duration,
+                          four_transect_distance) {
 
+  three_study_duration <-  as.character(sort(three_study_duration))
+  four_transect_distance <- sort(four_transect_distance)
+  
   cbp2 <- c(
     "#000000", "#E69F00", "#56B4E9", "#009E73",
     "#F0E442", "#0072B2", "#D55E00", "#CC79A7"

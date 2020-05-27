@@ -154,30 +154,45 @@ source("functions/cost_plot.R")
 source("functions/cost_max_plot.R")
 
 server <- function(input, output, session) {
+  
+  transect_dists <- reactive({
+    c(input$trans_dist_1, input$trans_dist_2,
+    input$trans_dist_3, input$trans_dist_4)
+  })
+  
+  study_days <- reactive({
+    c(input$study_day1,
+      input$study_day2, input$study_day3)
+  })
+  
+  mileage <- reactive(input$mileage_rate)
+  labour <- reactive(input$labour_rate)
+  speed <- reactive(input$survey_speed_input)
+  maxcost_yn <- reactive(input$maxcost)
+  maxcost_amount <- reactive(input$maxcost_amount)
+  
   cost_table <- reactive({
     generate_cost_data(
-      input$mileage_rate, input$labour_rate,
-      input$trans_dist_1, input$trans_dist_2,
-      input$trans_dist_3, input$trans_dist_4,
-      input$survey_speed_input, input$study_day1,
-      input$study_day2, input$study_day3
+      mileage(), 
+      labour(),
+      transect_dists(),
+      speed(),
+      study_days()
     )
   })
 
   cost_panel_plot <- reactive({
     cost_plot(
-      cost_table(), input$survey_speed_input,
-      input$study_day1,
-      input$study_day2, input$study_day3, input$maxcost, input$maxcost_amount
+      cost_table(), 
+      speed(),
+      maxcost_yn(), 
+      maxcost_amount()
     )
   })
 
   max_cost_plot <- reactive({
     cost_max_plot(
-      cost_table(), input$study_day1,
-      input$study_day2, input$study_day3,
-      input$trans_dist_1, input$trans_dist_2,
-      input$trans_dist_3, input$trans_dist_4
+      cost_table(), study_days(), transect_dists()
     )
   })
 
