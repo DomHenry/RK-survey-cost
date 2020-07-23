@@ -27,5 +27,5 @@ cost_max_plot <- function(x,
       legend.title = element_text(size = 10),
       legend.text = element_text(size = 10)
     ) +
-    scale_y_continuous(labels = scales::dollar_format())
+    scale_y_continuous()
 }
