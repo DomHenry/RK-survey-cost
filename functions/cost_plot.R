@@ -33,7 +33,7 @@ cost_plot <- function(x, survey_speed_input,
       legend.title = element_text(size = 10),
       legend.text = element_text(size = 10)
     ) +
-    scale_y_continuous(labels = scales::dollar_format()) +
+    scale_y_continuous() +
     facet_grid(carcass_detection ~ study_duration_days,
       labeller = labeller(carcass_detection = detect_labs)
     )
