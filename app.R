@@ -88,7 +88,7 @@ ui <- dashboardPage(
         column(
           width = 6,
           box(
-            title = "Comparitve plot",
+            title = "Comparative plot",
             status = "success", solidHeader = TRUE,
             width = NULL,
             plotOutput("panel_plot")
