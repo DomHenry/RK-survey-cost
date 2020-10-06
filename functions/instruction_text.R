@@ -42,5 +42,5 @@ in_text <- tags$div(
   tags$b(tags$p("Citations")),
   tags$p("Here you'll find links to the peer-reviewed publication, the 
          GitHub repo for the R Shiny app, and the recommended citation for both."),
-  tags$p("If you experience any problems, feel free to contact us at *csu@ewt.org.za*")
+  tags$p("If you experience any problems, feel free to contact us at science@ewt.org.za")
 )
