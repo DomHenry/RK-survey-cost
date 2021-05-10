@@ -134,9 +134,13 @@ ui <- dashboardPage(
 
       fluidRow(
         box(
-          title = "Citation", width = 4,
+          title = "Citation", width = 6,
           status = "primary", solidHeader = TRUE,
-          p("If you have found this tool useful for your research please consider using the following citation: XXX"),
+          p("If you have found this tool useful for your research please consider using the following citation:"),
+          p("Henry, D.A.W., Collinson-Jonker, W.J., Davies-Mostert, H.T., Nicholson, S.K., Roxburgh, L. and Parker, D.M. 2021. Optimising the cost of roadkill surveys based on an analysis of carcass persistence.",
+            em("Journal of Environmental Management"),"291:112664"),
+          br(),
+          p("Link to the journal article can be found", a("here", href = "https://doi.org/10.1016/j.jenvman.2021.112664")),
           br(),
           p("Source code for this app hosted at this", a("GitHub repo", href = "https://github.com/DomHenry/RK-survey-cost"))
         )

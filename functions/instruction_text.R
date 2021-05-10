@@ -9,7 +9,7 @@ in_text <- tags$div(
       tags$li("'Survey Design', where the actual interactive analysis is run"),
       tags$li("'Downloads', where figures and data from the analysis can be downloaded"),
       tags$li("'Citations' where you can find information on the recommended citation 
-              of the app and associated paper published in XXX.")
+              of the app and associated paper published in the Journal of Environmental Management.")
     )
   ),
   tags$b(tags$p("Survey Design")), 
@@ -31,7 +31,8 @@ in_text <- tags$div(
          relation to the mean carcass persistence across the various survey scenarios at either 75% or 50% 
          detection rates (which arise from conducting an alternative to daily surveys). The costs of doing 
          daily surveys (100%) are plotted in the figure below the comparative plot. For more detail 
-         on the methodology behind the analysis see the accompanying journal article *here*."),
+         on the methodology behind the analysis see the accompanying journal article", a("here.", 
+                                                                                         href = "https://doi.org/10.1016/j.jenvman.2021.112664")),
   tags$b(tags$p("Downloads")),
   tags$p("In the Download tab you can download these figures (in PNG format) and the data that 
          are used to generate them in case you want to make you own plots or interrogate some 
@@ -42,5 +43,5 @@ in_text <- tags$div(
   tags$b(tags$p("Citations")),
   tags$p("Here you'll find links to the peer-reviewed publication, the 
          GitHub repo for the R Shiny app, and the recommended citation for both."),
-  tags$p("If you experience any problems, feel free to contact us at science@ewt.org.za")
+  tags$p("If you experience any problems feel free to contact us at science@ewt.org.za")
 )
